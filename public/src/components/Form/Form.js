@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import './Form.styl'
+
 const onClick = async () => {
   try {
     const res = await axios.get('http://localhost:3000/ping')
@@ -11,5 +13,7 @@ const onClick = async () => {
 }
 
 export default () => (
-  <button onClick={() => onClick()} />
+  <div>
+    <button className="button" onClick={() => onClick()}>Find videos</button>
+  </div>
 )

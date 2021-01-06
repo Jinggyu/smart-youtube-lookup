@@ -23,6 +23,14 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.styl$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'stylus-loader' },
+        ]
+      },
     ],
   },
 }

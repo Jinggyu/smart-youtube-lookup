@@ -1,10 +1,9 @@
 import React from 'react'
 
-import Form from './Form'
+import Form from './Form/Form'
 
 export default () => (
   <div>
-    <h1>Hello, world!</h1>
     <Form />
   </div>
 )
