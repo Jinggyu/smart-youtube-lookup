@@ -1,3 +1,10 @@
 import React from 'react'
 
-export default () => <h1>Hello, world!</h1>
+import Form from './Form'
+
+export default () => (
+  <div>
+    <h1>Hello, world!</h1>
+    <Form />
+  </div>
+)
