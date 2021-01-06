@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import { get } from 'lodash' 
 
 const app = express()
@@ -9,11 +10,11 @@ app.get('/', (req, res) => {
     res.send("hello!")
 })
 
-app.get('/ping', (req, res) => {
+app.get('/ping', cors(), (req, res) => {
     res.send('pong')
 })
 
-app.get('/releases/', async (req, res) => {
+app.get('/releases/', cors(), async (req, res) => {
     const genre = get(req.query, 'genre') || 'Folk%2C+World%2C+%26+Country'
 
     const buildResponse = (release, videos) => {
