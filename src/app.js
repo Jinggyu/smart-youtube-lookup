@@ -1,6 +1,10 @@
 import express from 'express'
+import https from 'https'
 import cors from 'cors'
-import { get } from 'lodash' 
+import fs from 'fs'
+import path from 'path'
+
+import { get } from 'lodash'
 
 const app = express()
 
@@ -35,4 +39,12 @@ app.get('/releases/', cors(), async (req, res) => {
     }
 })
 
-export default app
+// to-do: define paths in ENV
+export default https.createServer({
+    key: fs.readFileSync(
+        path.resolve(__dirname, '../private/key.pem'), 'utf8'
+    ),
+    cert: fs.readFileSync(
+        path.resolve(__dirname, '../private/cert.pem'), 'utf8'
+    ),
+}, app)
